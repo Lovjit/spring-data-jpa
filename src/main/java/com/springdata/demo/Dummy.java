@@ -45,25 +45,28 @@ public class Dummy {
         employee4.setName("Hehe");
         employee4.setSalary(20000);
         
+        Employee employee6 = new Employee();
+        employee6.setId(6);
+        employee6.setAge(27);
+        employee6.setName("Hola");
+        employee6.setSalary(2000000);
+        
+        Employee employee5= new Employee();
+        employee5.setId(5);
+        employee5.setAge(27);
+        employee5.setName("Hola");
+        employee5.setSalary(200000);
+        
         employeeRepository.save(employee);
         employeeRepository.save(employee2);
         employeeRepository.save(employee3);
         employeeRepository.save(employee4);
+        employeeRepository.save(employee5);
+        employeeRepository.save(employee6);
 
         //EmployeeJPARepository employeeJPARepository = applicationContext.getBean(EmployeeJPARepository.class);
 
-        Specification<Employee> employeeSpecification = new Specification<Employee>() {
-
-			@Override
-			public Predicate toPredicate(Root<Employee> root,
-					CriteriaQuery<?> query, CriteriaBuilder cb) {
-				Path path = root.get("id");
-	                Predicate predicate = cb.gt(path,2);
-	                return  predicate;
-			}
-          };
-          
-          List<Employee> employeesGT2 = employeeRepository.findAll(employeeSpecification);
+          List<Employee> employeesGT2 = employeeRepository.findByNameOrderByIdAsc("Hola");
           for(Employee emp : employeesGT2){
         	  System.out.println("Employee Id : " + emp.getId() + " , name is : " + emp.getName());
           }
