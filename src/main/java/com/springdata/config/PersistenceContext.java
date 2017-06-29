@@ -21,8 +21,9 @@ public class PersistenceContext {
     DataSource dataSource(){
         DriverManagerDataSource driverManagerDataSource = new DriverManagerDataSource();
         driverManagerDataSource.setDriverClassName("com.mysql.jdbc.Driver");
-        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/poc");
+        driverManagerDataSource.setUrl("jdbc:mysql://localhost:3306/poc_new");
         driverManagerDataSource.setUsername("root");
+        driverManagerDataSource.setPassword("root");
         return driverManagerDataSource;
     }
 

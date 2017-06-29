@@ -15,3 +15,6 @@ wrapper/
 dump.rdb
 .slcache/
 core
+/.gradle/
+/build/
+/bin/
